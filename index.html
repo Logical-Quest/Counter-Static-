@@ -1,110 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Number Counter</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Count Up Animation</title>
+  <!-- Fontawesome icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <style>
+    *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #171717;
+}
+
+.wrapper {
+  position: absolute;
+  width: 80vw;
+  transform:  translate(-50%, -50%);
+  top:50%;
+  left: 50%;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.container {
+  width: 28vmin;
+  height: 28vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em 0;
+  position: relative;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background-color: #21242b;
+  border-bottom: 10px solid #188cf9;
+}
+
+i{
+  color: #188cf9;
+  font-size: 2.5em;
+  text-align: center;
+
+}
+
+span.num {
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 3em;
+}
+
+span.text {
+  color: #e0e0e0;
+  font-size: 1.1em;
+  text-align: center;
+  pad: 0.7em 0;
+  font-weight: 400;
+  line-height: 0;
+}
+
+@media screen and (max-width:1024px) {
+  .wrapper {
+    width: 85vw;
+  }
+  .container {
+    height: 26vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper{
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .container {
+    width: calc(50% -40px);
+    height: 30vmin;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wrapper{
+    gap: 15px;
+  }
+
+  .container {
+    width: 100%;
+    height: 25vmin;
+    font-size: 8px;
+  }
+}
+  </style>
 
 
-
-    <style>
-
-        body{
-            font-family: sans-serif;
-        }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .title{
-            text-align: center;
-            margin:1em;
-        }
-        .counters{
-            padding: 3em 2em;
-            background: #4193ff;
-            color: #fff;
-            text-align: center;
-        }
-        .counters > div {
-            max-width:900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 4em 2em;
-        }
-        .counter{
-            position:relative;
-        }
-        .counter h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-        }
-        .counter:not(:last-child)::before{
-            content: '';
-            background: #fff;
-            position: absolute;
-            width: 2px;
-            height: 2em;
-            top: 50%;
-            transform: translateY(-50%);
-            right: -1em;
-        }
-
-        @media screen and
-        (max-width: 900px) and (min-width: 501px){
-         .counters > div {
-          grid-template-columns: 1fr 1fr;
-         }
-         .counter:nth-child(2)::before {
-          display: none;
-         }   
-        }
-
-        @media screen and
-        (max-width: 500px) {
-         .counters > div {
-          grid-template-columns: 1fr;
-          row-gap: 5em;
-         }
-         .counter:not(:last-child)::before {
-          width:90%;
-          height: 2px;
-          top: initial;
-          right: initial;
-          bottom: -3em;
-          left: 50%;
-          transform: translateX(-50%);
-         }   
-        }
-
-    </style>
 </head>
-
 <body>
-    <h1 class="title">Scroll to Activated</h1>
-    <div style="min-height: 40em;"></div>
-    <div class="counters">
-        <div>
-            <div class="counter">
-                <h1><span data-count="156">0</span></h1>
-                <h3>Project Completed</h3>
-            </div>
-            <div class="counter">
-                <h1><span data-count="227">0</span></h1>
-                <h3>Satisfied Clients</h3>
-            </div>
-            <div class="counter">
-                <h1><span data-count="91">0</span>%</h1>
-                <h3>Success Rate</h3>
-            </div>
-            <div class="counter">
-                <h1><span data-count="30">0</span>+</h1>
-                <h3>Years Experience</h3>
-            </div>
 
-            </div>
-        </div>
-        <div style="min-height:20em;"></div>
+  <div class="wrapper">
+    <div class="container">
+      <i class="fab fa-twitter"></i>
+      <span class="num" data-val="350">000</span>
+      <span class="text">Followers</span>
+    </div>
+    <div class="container">
+      <i class="fab fa-facebook-f"></i>
+      <span class="num" data-val="250">000</span>
+      <span class="text">Followers</span>
+    </div>
+    <div class="container">
+      <i class="fab fa-youtube"></i>
+      <span class="num" data-val="325">000</span>
+      <span class="text">Followers</span>
+    </div>
+    <div class="container">
+      <i class="fab fa-instagram"></i>
+      <span class="num" data-val="275">000</span>
+      <span class="text">Followers</span>
+    </div>
+  </div>
+  <!-- Script -->
+  <script>
+
+let valueDisplays = document.querySelectorAll(".num");
+let interval = 4000;
+
+valueDisplays.forEach((valueDisplay) => {
+  let startValue = 0;
+  let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+  let duration = Math.floor(interval / endValue);
+  let counter = setInterval(function () {
+    startValue +=1;
+    valueDisplay.textContent = startValue;
+    if (startValue == endValue) {
+      clearInterval(counter);
+    }
+  }, duration);
+});
+  </script>
+
+
 
 </body>
 </html>
